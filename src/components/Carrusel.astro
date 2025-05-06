@@ -1,11 +1,12 @@
 ---
 ---
 <section class="tech-section">
-    <div class="line"></div>
-  
+  <div class="line"></div>
+
+  <div class="container">
     <div class="slider">
       <div class="slide-track">
-        <!-- Repite cada imagen al menos 2 veces para el efecto continuo -->
+        <!-- Tus imágenes aquí -->
         <img src="/assets/carrusel/flutter_rm.png" alt="Flutter" />
         <img src="/assets/carrusel/laravel_rm.png" alt="Laravel" />
         <img src="/assets/carrusel/angular_rm.png" alt="Angular" />
@@ -17,7 +18,8 @@
         <img src="/assets/carrusel/java_rm.png" alt="java" />
         <img src="/assets/carrusel/figma_rm.png" alt="figma" />
         <img src="/assets/carrusel/gato.png" alt="git" />
-        
+
+        <!-- Repetidos -->
         <img src="/assets/carrusel/flutter_rm.png" alt="Flutter" />
         <img src="/assets/carrusel/laravel_rm.png" alt="Laravel" />
         <img src="/assets/carrusel/angular_rm.png" alt="Angular" />
@@ -31,9 +33,17 @@
         <img src="/assets/carrusel/gato.png" alt="git" />
       </div>
     </div>
-  </section>
+  </div>
+</section>
   
   <style>
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Espacio lateral */
+}
+
   .tech-section {
     background-color: rgba(8, 7, 25, 1);
     padding: 40px 0;
@@ -43,7 +53,7 @@
   .line {
     height: 1px;
     background: #ccc;
-    width: 70%;
+    width: 40%;
     margin: 0 auto 30px;
   }
   

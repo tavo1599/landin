@@ -1,39 +1,40 @@
 ---
 const servicios = [
   {
-    titulo: "Desarrollo Web",
-    descripcion: "Creamos plataformas modernas, responsivas y funcionales para tu negocio.",
-    detalle: "HTML - CSS - JavaScript - Astro",
-    imagen: "/assets/serv1.png",
+    titulo: "Metodologias de innovacion para el cambio digital",
+    descripcion: "Desarrollo de aplicaciones.",
+    detalle: "WEB - IOS - Android",
+    imagen: "/assets/servicios/serv1.png",
   },
   {
-    titulo: "Apps Móviles",
-    descripcion: "Diseño y desarrollo de apps para iOS y Android, nativas o híbridas.",
-    detalle: "Flutter - React Native",
-    imagen: "/assets/serv2.png",
+    titulo: "Alineados con las tendencias tecnologicas de vanguardia",
+    descripcion: "Soluciones.",
+    detalle: "CLOUD - DOMINIOS y HOSTING",
+    imagen: "/assets/servicios/serv2.png",
   },
   {
-    titulo: "UI/UX Design",
-    descripcion: "Diseños centrados en el usuario, con experiencias visuales y usables.",
-    detalle: "Figma - Prototipos - Wireframes",
-    imagen: "/assets/serv3.png",
+    titulo: "Desarrollamos nuestros software bajo freameworks agile",
+    descripcion: "Soluciones.",
+    detalle: "ERP - CRM para empresas",
+    imagen: "/assets/servicios/serv3.png",
   },
   {
-    titulo: "Backend & APIs",
-    descripcion: "Creamos APIs seguras y escalables para alimentar tus servicios digitales.",
-    detalle: "Node.js - Laravel - Firebase",
-    imagen: "/assets/serv4.png",
+    titulo: "soluciones para puntos de venta - Facturación electronica",
+    descripcion: "Lleva un eficiente control de tu empresa.",
+    detalle: "",
+    imagen: "/assets/servicios/serv4.png",
   },
   {
-    titulo: "Cloud & DevOps",
-    descripcion: "Infraestructura en la nube y automatización de despliegue continuo.",
-    detalle: "AWS - Docker - GitHub Actions",
-    imagen: "/assets/serv5.png",
+    titulo: "Experto en desarrollo y diseño de tiendas virtuales",
+    descripcion: "Optimiza tu tienda ideal.",
+    detalle: "",
+    imagen: "/assets/servicios/serv5.png",
   }
 ];
 ---
 
-<section class="servicios-section">
+<section class="servicios-section" id="servicios">
+  <h2 class="titulo-servicios">Nuestros Servicios</h2>
   {servicios.map((servicio, i) => (
     <div class="container">
       <div class={`texto servicio-texto`} id={`texto${i}`}>
@@ -50,8 +51,17 @@ const servicios = [
 </section>
 
 <style>
+
+.titulo-servicios {
+  text-align: center;
+  color: white;
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
 .servicios-section {
-  background-color: #0b0b1f;
+  background-color: rgba(8, 7, 25, 1);
   padding: 60px 20px;
   overflow: hidden;
 }
@@ -114,4 +124,29 @@ const servicios = [
   max-width: 100%;
   height: auto;
 }
-</
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const total = 5; // cantidad de servicios
+
+    for (let i = 0; i < total; i++) {
+      const texto = document.getElementById(`texto${i}`);
+      const imagen = document.getElementById(`imagen${i}`);
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+
+      observer.observe(texto);
+      observer.observe(imagen);
+    }
+  });
+</script>
