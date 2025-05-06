@@ -1,0 +1,83 @@
+---
+---
+<section class="tech-section">
+    <div class="line"></div>
+  
+    <div class="slider">
+      <div class="slide-track">
+        <!-- Repite cada imagen al menos 2 veces para el efecto continuo -->
+        <img src="/assets/carrusel/flutter_rm.png" alt="Flutter" />
+        <img src="/assets/carrusel/laravel_rm.png" alt="Laravel" />
+        <img src="/assets/carrusel/angular_rm.png" alt="Angular" />
+        <img src="/assets/carrusel/react_rm.png" alt="React" />
+        <img src="/assets/carrusel/aws_rm.png" alt="AWS" />
+        <img src="/assets/carrusel/vite_rm.png" alt="vite" />
+        <img src="/assets/carrusel/type.png" alt="type" />
+        <img src="/assets/carrusel/python_rm.png" alt="python" />
+        <img src="/assets/carrusel/java_rm.png" alt="java" />
+        <img src="/assets/carrusel/figma_rm.png" alt="figma" />
+        <img src="/assets/carrusel/gato.png" alt="git" />
+        
+        <img src="/assets/carrusel/flutter_rm.png" alt="Flutter" />
+        <img src="/assets/carrusel/laravel_rm.png" alt="Laravel" />
+        <img src="/assets/carrusel/angular_rm.png" alt="Angular" />
+        <img src="/assets/carrusel/react_rm.png" alt="React" />
+        <img src="/assets/carrusel/aws_rm.png" alt="AWS" />
+        <img src="/assets/carrusel/vite_rm.png" alt="vite" />
+        <img src="/assets/carrusel/type.png" alt="type" />
+        <img src="/assets/carrusel/python_rm.png" alt="python" />
+        <img src="/assets/carrusel/java_rm.png" alt="java" />
+        <img src="/assets/carrusel/figma_rm.png" alt="figma" />
+        <img src="/assets/carrusel/gato.png" alt="git" />
+      </div>
+    </div>
+  </section>
+  
+  <style>
+  .tech-section {
+    background-color: rgba(8, 7, 25, 1);
+    padding: 40px 0;
+    overflow: hidden;
+  }
+  
+  .line {
+    height: 1px;
+    background: #ccc;
+    width: 70%;
+    margin: 0 auto 30px;
+  }
+  
+  .slider {
+  height: auto; /* Cambiamos de fijo a automático */
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 40px; /* Margen inferior */
+}
+
+.slide-track {
+  display: flex;
+  align-items: center; /* Centra verticalmente las imágenes */
+  width: max-content;
+  animation: scroll 20s linear infinite;
+  gap: 40px;
+  padding: 10px 0; /* Espacio vertical */
+}
+
+.slide-track img {
+  height: 90px; /* Altura razonable para logos */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.4));
+}
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  </style>
+  
