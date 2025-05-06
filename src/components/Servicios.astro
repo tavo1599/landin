@@ -1,0 +1,117 @@
+---
+const servicios = [
+  {
+    titulo: "Desarrollo Web",
+    descripcion: "Creamos plataformas modernas, responsivas y funcionales para tu negocio.",
+    detalle: "HTML - CSS - JavaScript - Astro",
+    imagen: "/assets/serv1.png",
+  },
+  {
+    titulo: "Apps Móviles",
+    descripcion: "Diseño y desarrollo de apps para iOS y Android, nativas o híbridas.",
+    detalle: "Flutter - React Native",
+    imagen: "/assets/serv2.png",
+  },
+  {
+    titulo: "UI/UX Design",
+    descripcion: "Diseños centrados en el usuario, con experiencias visuales y usables.",
+    detalle: "Figma - Prototipos - Wireframes",
+    imagen: "/assets/serv3.png",
+  },
+  {
+    titulo: "Backend & APIs",
+    descripcion: "Creamos APIs seguras y escalables para alimentar tus servicios digitales.",
+    detalle: "Node.js - Laravel - Firebase",
+    imagen: "/assets/serv4.png",
+  },
+  {
+    titulo: "Cloud & DevOps",
+    descripcion: "Infraestructura en la nube y automatización de despliegue continuo.",
+    detalle: "AWS - Docker - GitHub Actions",
+    imagen: "/assets/serv5.png",
+  }
+];
+---
+
+<section class="servicios-section">
+  {servicios.map((servicio, i) => (
+    <div class="container">
+      <div class={`texto servicio-texto`} id={`texto${i}`}>
+        <h2>{servicio.titulo}</h2>
+        <p>{servicio.descripcion}</p>
+        <p class="detalle">{servicio.detalle}</p>
+      </div>
+
+      <div class={`imagen servicio-img`} id={`imagen${i}`}>
+        <img src={servicio.imagen} alt={servicio.titulo} />
+      </div>
+    </div>
+  ))}
+</section>
+
+<style>
+.servicios-section {
+  background-color: #0b0b1f;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 80px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.texto {
+  color: white;
+  flex: 1;
+  min-width: 300px;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1s ease;
+}
+
+.texto.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.texto h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.texto p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.detalle {
+  font-weight: lighter;
+  font-size: 0.9rem;
+}
+
+.imagen {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1s ease;
+}
+
+.imagen.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.imagen img {
+  max-width: 100%;
+  height: auto;
+}
+</
