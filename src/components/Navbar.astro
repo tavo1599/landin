@@ -5,13 +5,11 @@
       <img src="/assets/logo_sinfondo.png" alt="Logo" />
     </a>
 
-    <!-- Icono de menú -->
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon">
-      ☰
-    </label>
+    <!-- Icono de menú para móviles -->
+    <input type="checkbox" id="menu-toggle" hidden />
+    <label for="menu-toggle" class="menu-icon">☰</label>
 
-    <!-- Navegación -->
+    <!-- Enlaces de navegación -->
     <ul class="nav-links">
       <li><a href="#inicio">Inicio</a></li>
       <li><a href="#nosotros">Sobre Nosotros</a></li>
@@ -22,14 +20,13 @@
 </nav>
 
 <style>
-/* Estilos base */
 .navbar {
-  background-color: rgba(8, 7, 25, 1);
+  background-color: #080719;
   padding: 16px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -37,8 +34,8 @@
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   position: relative;
 }
 
@@ -46,16 +43,24 @@
   height: 40px;
 }
 
-/* Menú de navegación */
+/* Icono del menú */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Enlaces de navegación escritorio */
 .nav-links {
-  list-style: none;
   display: flex;
   gap: 30px;
+  list-style: none;
 }
 
 .nav-links a {
-  text-decoration: none;
   color: #e7e7e7;
+  text-decoration: none;
   font-weight: 500;
   position: relative;
   padding: 5px 0;
@@ -81,16 +86,14 @@
   width: 100%;
 }
 
-/* Oculta checkbox e ícono en escritorio */
-#menu-toggle,
-.menu-icon {
-  display: none;
-}
-
-/* Responsive */
+/* Responsive: móviles */
 @media (max-width: 768px) {
   .logo img {
     height: 32px;
+  }
+
+  .menu-icon {
+    display: block;
   }
 
   .nav-links {
@@ -98,19 +101,13 @@
     position: absolute;
     top: 60px;
     right: 20px;
-    background: rgba(8, 7, 25, 0.95);
+    background-color: rgba(8, 7, 25, 0.95);
     padding: 20px;
     border-radius: 8px;
-    display: none;
     gap: 20px;
+    display: none;
+    width: 200px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-
-  .menu-icon {
-    display: block;
-    font-size: 28px;
-    color: #fff;
-    cursor: pointer;
   }
 
   #menu-toggle:checked ~ .nav-links {

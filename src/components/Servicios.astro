@@ -1,31 +1,31 @@
 ---
 const servicios = [
   {
-    titulo: "Metodologias de innovacion para el cambio digital",
+    titulo: "Metodologías de innovación para el cambio digital",
     descripcion: "Desarrollo de aplicaciones.",
     detalle: "WEB - IOS - Android",
     imagen: "/assets/servicios/serv1.png",
   },
   {
-    titulo: "Alineados con las tendencias tecnologicas de vanguardia",
+    titulo: "Alineados con las tendencias tecnológicas de vanguardia",
     descripcion: "Soluciones.",
     detalle: "CLOUD - DOMINIOS y HOSTING",
     imagen: "/assets/servicios/serv2.png",
   },
   {
-    titulo: "Desarrollamos nuestros software bajo freameworks agile",
+    titulo: "Desarrollamos nuestros software bajo frameworks ágil",
     descripcion: "Soluciones.",
     detalle: "ERP - CRM para empresas",
     imagen: "/assets/servicios/serv3.png",
   },
   {
-    titulo: "soluciones para puntos de venta - Facturación electronica",
+    titulo: "Soluciones para puntos de venta - Facturación electrónica",
     descripcion: "Lleva un eficiente control de tu empresa.",
     detalle: "",
     imagen: "/assets/servicios/serv4.png",
   },
   {
-    titulo: "Experto en desarrollo y diseño de tiendas virtuales",
+    titulo: "Expertos en desarrollo y diseño de tiendas virtuales",
     descripcion: "Optimiza tu tienda ideal.",
     detalle: "",
     imagen: "/assets/servicios/serv5.png",
@@ -36,14 +36,13 @@ const servicios = [
 <section class="servicios-section" id="servicios">
   <h2 class="titulo-servicios">Nuestros Servicios</h2>
   {servicios.map((servicio, i) => (
-    <div class="container">
-      <div class={`texto servicio-texto`} id={`texto${i}`}>
+    <div class="servicio-container">
+      <div class="texto servicio-texto" id={`texto${i}`}>
         <h2>{servicio.titulo}</h2>
         <p>{servicio.descripcion}</p>
-        <p class="detalle">{servicio.detalle}</p>
+        {servicio.detalle && <p class="detalle">{servicio.detalle}</p>}
       </div>
-
-      <div class={`imagen servicio-img`} id={`imagen${i}`}>
+      <div class="imagen servicio-img" id={`imagen${i}`}>
         <img src={servicio.imagen} alt={servicio.titulo} />
       </div>
     </div>
@@ -51,36 +50,32 @@ const servicios = [
 </section>
 
 <style>
+.servicios-section {
+  background-color: #080719;
+  padding: 60px 20px;
+}
 
 .titulo-servicios {
   font-family: 'Michroma', sans-serif;
   text-align: center;
   color: white;
-  font-size: 2.4rem;
-  margin-bottom: 40px;
-  font-weight: bold;
+  font-size: 2.2rem;
+  margin-bottom: 60px;
 }
 
-.servicios-section {
-  background-color: rgba(8, 7, 25, 1);
-  padding: 60px 20px;
-  overflow: hidden;
-}
-
-.container {
+.servicio-container {
   max-width: 1200px;
-  margin: 80px auto;
+  margin: 0 auto 80px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
   gap: 40px;
 }
 
 .texto {
   color: white;
-  flex: 1;
-  min-width: 300px;
+  flex: 1 1 300px;
   opacity: 0;
   transform: translateX(-50px);
   transition: all 1s ease;
@@ -93,25 +88,25 @@ const servicios = [
 
 .texto h2 {
   font-family: 'Michroma', sans-serif;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
 }
 
 .texto p {
-  font-family: 'Michroma', sans-serif;
   margin-bottom: 10px;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  font-family: 'Michroma', sans-serif;
 }
 
 .detalle {
   font-weight: lighter;
   font-size: 0.9rem;
+  opacity: 0.8;
 }
 
 .imagen {
-  flex: 1;
-  min-width: 300px;
+  flex: 1 1 300px;
   text-align: center;
   opacity: 0;
   transform: translateX(50px);
@@ -124,32 +119,56 @@ const servicios = [
 }
 
 .imagen img {
-  max-width: 100%;
+  max-width: 60%;
   height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .servicio-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .texto, .imagen {
+    transform: none;
+    opacity: 1;
+  }
+
+  .texto.visible, .imagen.visible {
+    transform: none;
+    opacity: 1;
+  }
+
+  .titulo-servicios {
+    font-size: 1.8rem;
+  }
+
+  .texto h2 {
+    font-size: 1.3rem;
+  }
 }
 </style>
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    const total = 5; // cantidad de servicios
-
+    const total = 5;
     for (let i = 0; i < total; i++) {
       const texto = document.getElementById(`texto${i}`);
       const imagen = document.getElementById(`imagen${i}`);
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.3 });
 
-      observer.observe(texto);
-      observer.observe(imagen);
+      if (texto) observer.observe(texto);
+      if (imagen) observer.observe(imagen);
     }
   });
 </script>

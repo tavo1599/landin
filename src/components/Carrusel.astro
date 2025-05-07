@@ -6,88 +6,104 @@
   <div class="container">
     <div class="slider">
       <div class="slide-track">
-        <!-- Tus imágenes aquí -->
+        <!-- Logos tecnológicos -->
         <img src="/assets/carrusel/flutter_rm.png" alt="Flutter" />
         <img src="/assets/carrusel/laravel_rm.png" alt="Laravel" />
         <img src="/assets/carrusel/angular_rm.png" alt="Angular" />
         <img src="/assets/carrusel/react_rm.png" alt="React" />
         <img src="/assets/carrusel/aws_rm.png" alt="AWS" />
-        <img src="/assets/carrusel/vite_rm.png" alt="vite" />
-        <img src="/assets/carrusel/type.png" alt="type" />
-        <img src="/assets/carrusel/python_rm.png" alt="python" />
-        <img src="/assets/carrusel/java_rm.png" alt="java" />
-        <img src="/assets/carrusel/figma_rm.png" alt="figma" />
-        <img src="/assets/carrusel/gato.png" alt="git" />
+        <img src="/assets/carrusel/vite_rm.png" alt="Vite" />
+        <img src="/assets/carrusel/type.png" alt="TypeScript" />
+        <img src="/assets/carrusel/python_rm.png" alt="Python" />
+        <img src="/assets/carrusel/java_rm.png" alt="Java" />
+        <img src="/assets/carrusel/figma_rm.png" alt="Figma" />
+        <img src="/assets/carrusel/gato.png" alt="GitHub" />
 
-        <!-- Repetidos -->
+        <!-- Repetidos para efecto infinito -->
         <img src="/assets/carrusel/flutter_rm.png" alt="Flutter" />
         <img src="/assets/carrusel/laravel_rm.png" alt="Laravel" />
         <img src="/assets/carrusel/angular_rm.png" alt="Angular" />
         <img src="/assets/carrusel/react_rm.png" alt="React" />
         <img src="/assets/carrusel/aws_rm.png" alt="AWS" />
-        <img src="/assets/carrusel/vite_rm.png" alt="vite" />
-        <img src="/assets/carrusel/type.png" alt="type" />
-        <img src="/assets/carrusel/python_rm.png" alt="python" />
-        <img src="/assets/carrusel/java_rm.png" alt="java" />
-        <img src="/assets/carrusel/figma_rm.png" alt="figma" />
-        <img src="/assets/carrusel/gato.png" alt="git" />
+        <img src="/assets/carrusel/vite_rm.png" alt="Vite" />
+        <img src="/assets/carrusel/type.png" alt="TypeScript" />
+        <img src="/assets/carrusel/python_rm.png" alt="Python" />
+        <img src="/assets/carrusel/java_rm.png" alt="Java" />
+        <img src="/assets/carrusel/figma_rm.png" alt="Figma" />
+        <img src="/assets/carrusel/gato.png" alt="GitHub" />
       </div>
     </div>
   </div>
 </section>
-  
-  <style>
+
+<style>
+.tech-section {
+  background-color: #080719;
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+.line {
+  height: 2px;
+  background: linear-gradient(to right, #fff2, #fff, #fff2);
+  width: 40%;
+  margin: 0 auto 30px;
+}
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px; /* Espacio lateral */
+  padding: 0 20px;
 }
 
-  .tech-section {
-    background-color: rgba(8, 7, 25, 1);
-    padding: 40px 0;
-    overflow: hidden;
-  }
-  
-  .line {
-    height: 1px;
-    background: #ccc;
-    width: 40%;
-    margin: 0 auto 30px;
-  }
-  
-  .slider {
-  height: auto; /* Cambiamos de fijo a automático */
-  position: relative;
+.slider {
   overflow: hidden;
   width: 100%;
-  margin-bottom: 40px; /* Margen inferior */
 }
 
 .slide-track {
   display: flex;
-  align-items: center; /* Centra verticalmente las imágenes */
-  width: max-content;
-  animation: scroll 20s linear infinite;
+  align-items: center;
   gap: 40px;
-  padding: 10px 0; /* Espacio vertical */
+  width: fit-content;
+  animation: scroll 30s linear infinite;
+  padding: 10px 0;
 }
 
 .slide-track img {
-  height: 90px; /* Altura razonable para logos */
+  height: 80px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 3px rgba(0,0,0,0.4));
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.1));
 }
-  
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+
+.slide-track img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
   }
-  </style>
-  
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .slide-track {
+    gap: 25px;
+    animation-duration: 40s;
+  }
+
+  .slide-track img {
+    height: 60px;
+  }
+
+  .line {
+    width: 60%;
+  }
+}
+</style>

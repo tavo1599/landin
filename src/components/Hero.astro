@@ -1,82 +1,123 @@
 ---
 // No se necesitan props
 ---
+<!-- src/components/Hero.astro -->
 <section class="hero" id="inicio">
-    <div class="container">
-      <div class="hero-texto">
-        <h1>&lt; Impulsamos tu Idea,<br />Creamos tu Solución _</h1>
-        <p>
-          En manis'dev, transformamos ideas en soluciones digitales funcionales, modernas y escalables.
-          Somos una empresa especializada en desarrollo web y software a medida, con enfoque en la
-          experiencia del usuario, rendimiento y diseño elegante.
-        </p>
-        <a href="#contacto" class="btn">Contactanos</a>
-      </div>
-      <div class="hero-imagen">
-        <img src="/assets/portada_hero.png" alt="Hero manisdev" />
-      </div>
+  <div class="container">
+    <div class="hero-texto">
+      <h1>&lt; Impulsamos tu Idea,<br />Creamos tu Solución _</h1>
+      <p>
+        En manis'dev, transformamos ideas en soluciones digitales funcionales, modernas y escalables.
+        Somos una empresa especializada en desarrollo web y software a medida, con enfoque en la
+        experiencia del usuario, rendimiento y diseño elegante.
+      </p>
+      <a href="#contacto" class="btn">Contáctanos</a>
     </div>
-  </section>
-  
-  <style>
-  .hero {
-    background-color: rgba(8, 7, 25, 1);
-    color: #f2f2f2;
-    padding: 80px 20px;
+    <div class="hero-imagen">
+      <img src="/assets/portada_hero.png" alt="Hero manisdev" />
+    </div>
+  </div>
+</section>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+.hero {
+  background-color: #080719;
+  color: #f2f2f2;
+  padding: 80px 20px;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* Animaciones */
+.hero-texto,
+.hero-imagen {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards;
+}
+
+.hero-imagen {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+/* Texto */
+.hero-texto {
+  flex: 1 1 500px;
+}
+
+.hero-texto h1 {
+  font-family: 'Michroma', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.hero-texto p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 550px;
+}
+
+/* Botón */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: #0b0b1f;
+}
+
+/* Imagen */
+.hero-imagen {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.hero-imagen img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 95px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0;
-  }
-  
-  .hero-texto {
-    flex: 1 1 500px;
-  }
-  
-  .hero-texto h1 {
-    font-family: 'Michroma', sans-serif;
-    font-size: 2.5rem;
-    line-height: 1.3;
-    margin-bottom: 20px;
-  }
-  
-  .hero-texto p {
-    font-size: 1rem;
-    margin-bottom: 30px;
-    line-height: 1.6;
-    max-width: 500px;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border: 1px solid #fff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  
-  .btn:hover {
-    background-color: #fff;
-    color: #0b0b1f;
-  }
-  
-  .hero-imagen {
-    flex: 1 1 400px;
+    flex-direction: column;
     text-align: center;
   }
-  
-  .hero-imagen img {
-    max-width: 100%;
-    height: auto;
+
+  .hero-texto h1 {
+    font-size: 2rem;
   }
-  </style>
-  
+
+  .hero-texto p {
+    margin: 0 auto 30px;
+  }
+}
+</style>
