@@ -1,74 +1,120 @@
 <!-- src/components/Navbar.astro -->
 <nav class="navbar">
-    <div class="container">
-      <a href="#inicio" class="logo">
-        <img src="/assets/logo_sinfondo.png" alt="Logo" />
-      </a>
-      <ul class="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#nosotros"> Sobre Nosotros</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  <style>
-  .navbar {
+  <div class="container">
+    <a href="#inicio" class="logo">
+      <img src="/assets/logo_sinfondo.png" alt="Logo" />
+    </a>
+
+    <!-- Icono de menú -->
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">
+      ☰
+    </label>
+
+    <!-- Navegación -->
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#nosotros">Sobre Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+/* Estilos base */
+.navbar {
   background-color: rgba(8, 7, 25, 1);
   padding: 16px 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .container {
-  width: 100%;
-  max-width: 1100px; /* <-- reduce aquí el ancho máximo */
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px; /* espacio horizontal */
+  padding: 0 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 .logo img {
   height: 40px;
 }
 
+/* Menú de navegación */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 30px;
 }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: #e7e7e7;
-    font-weight: 500;
-    position: relative;
-    padding: 5px 0;
-    transition: color 0.3s ease;
+
+.nav-links a {
+  text-decoration: none;
+  color: #e7e7e7;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: #0077cc;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #0077cc;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Oculta checkbox e ícono en escritorio */
+#menu-toggle,
+.menu-icon {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logo img {
+    height: 32px;
   }
-  
-  .nav-links a::after {
-    content: "";
+
+  .nav-links {
+    flex-direction: column;
     position: absolute;
-    width: 0%;
-    height: 2px;
-    left: 0;
-    bottom: 0;
-    background-color: #0077cc;
-    transition: width 0.3s ease;
+    top: 60px;
+    right: 20px;
+    background: rgba(8, 7, 25, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+    display: none;
+    gap: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
-  
-  .nav-links a:hover {
-    color: #0077cc;
+
+  .menu-icon {
+    display: block;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
   }
-  
-  .nav-links a:hover::after {
-    width: 100%;
+
+  #menu-toggle:checked ~ .nav-links {
+    display: flex;
   }
-  </style>
-  
+}
+</style>

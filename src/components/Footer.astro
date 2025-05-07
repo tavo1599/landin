@@ -1,17 +1,97 @@
-<!-- src/components/Footer.astro -->
 ---
+// Puedes importar este componente en tu layout o directamente en tus páginas
 ---
+
 <footer class="footer">
-  <div class="container">
-    <p>&copy; 2025 Mi Empresa. Todos los derechos reservados.</p>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="/assets/logo_sinfondo.png" alt="Logo" />
+    </div>
+    <div class="footer-info">
+      <p>&copy; 2025 manis'dev. Todos los derechos reservados.</p>
+      <nav class="footer-links">
+        <a href="/">Inicio</a>
+        <a href="/nosotros">Nosotros</a>
+        <a href="/servicios">Servicios</a>
+        <a href="/contacto">Contacto</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
 <style>
-.footer {
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 40px 20px;
-}
+  .footer {
+    background-color: #09071a;
+    padding: 40px 20px;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .footer-logo img {
+    height: 40px;
+    width: auto;
+  }
+
+  .footer-info {
+    flex: 1;
+    text-align: right;
+  }
+
+  .footer-info p {
+    margin-bottom: 10px;
+    color: #ccc;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .footer-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #3d8bff;
+    transition: 0.3s ease;
+  }
+
+  .footer-links a:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-info {
+      text-align: center;
+    }
+
+    .footer-links {
+      justify-content: center;
+    }
+  }
 </style>
